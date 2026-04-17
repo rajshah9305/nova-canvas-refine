@@ -1,0 +1,165 @@
+import { motion } from "framer-motion";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+
+type Project = {
+  num: string;
+  title: string;
+  description: string;
+  stack: string[];
+  stat: string;
+  live?: string;
+  source?: string;
+  featured?: boolean;
+};
+
+const PROJECTS: Project[] = [
+  {
+    num: "01",
+    title: "RAJ_AI PLATFORM",
+    description:
+      "Flagship Generative AI platform integrating multi-modal LLMs. Real-time RAG, custom agent workflows, and a brutalist highly-responsive UI.",
+    stack: ["Next.js", "Python", "LangChain", "Pinecone"],
+    stat: "10K+ INFERENCES",
+    live: "https://www.rajai.org/",
+    source: "https://github.com/rajshah9305/raj-ai-platform",
+    featured: true,
+  },
+  {
+    num: "02",
+    title: "AI AGENT ORCHESTRATOR",
+    description:
+      "Ultra-fast agent management platform with Cerebras integration. Real-time 3D dashboard, multi-framework support, WebSocket live updates, Bull + Redis jobs.",
+    stack: ["TypeScript", "Next.js", "Three.js", "Cerebras", "Redis", "WebSockets"],
+    stat: "5 AI FRAMEWORKS",
+    source: "https://github.com/rajshah9305/AIAgentOrchestrationPlatform",
+    featured: true,
+  },
+  {
+    num: "03",
+    title: "AI APP BUILDER",
+    description:
+      "No-code AI application builder generating complete React apps from natural-language prompts using Cerebras Llama-4. Monaco Editor, JWT auth, one-click deploy.",
+    stack: ["Next.js", "Cerebras", "Llama-4", "Prisma", "PostgreSQL"],
+    stat: "ZERO-CODE DEPLOY",
+    source: "https://github.com/rajshah9305/AIAppBuilder-CerebrasAI-llama-4",
+    featured: true,
+  },
+  {
+    num: "04",
+    title: "AUTONOMOUS_AGENT_GPT",
+    description:
+      "Autonomous recursive agent orchestrator capable of self-prompting, task decomposition, and multi-agent coordination for complex software tasks.",
+    stack: ["TypeScript", "OpenAI API", "WebSockets"],
+    stat: "99.9% UPTIME",
+    source: "https://github.com/rajshah9305/autonomous-agent-gpt",
+  },
+  {
+    num: "05",
+    title: "SCIVIZ DESIGN SYSTEM",
+    description:
+      "Production-ready design system for scientific visualization apps. Themed UI components, dark/light theming, high-performance React + TS library.",
+    stack: ["React", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+    stat: "FULL DESIGN SYSTEM",
+    source: "https://github.com/rajshah9305/SciViz-Design-System",
+  },
+  {
+    num: "06",
+    title: "DISTRIBUTED_SYSTEMS_API",
+    description:
+      "High-throughput microservices architecture engineered for real-time data streaming with sub-millisecond latency.",
+    stack: ["Rust", "gRPC", "PostgreSQL", "Kafka"],
+    stat: "<1MS LATENCY",
+    source: "https://github.com/rajshah9305/distributed-systems-api",
+  },
+];
+
+function ProjectCard({ p, index }: { p: Project; index: number }) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, delay: (index % 3) * 0.08 }}
+      className="group relative brutal-border bg-card p-7 md:p-9 hover:brutal-shadow-primary transition-all hover:-translate-y-1"
+    >
+      <div className="flex items-start justify-between mb-6">
+        <div className="flex items-center gap-3">
+          {p.featured && (
+            <span className="font-mono text-[10px] tracking-[0.3em] bg-primary text-primary-foreground px-2 py-1">
+              FEATURED
+            </span>
+          )}
+          <span className="font-mono text-xs text-muted-foreground">{p.num}</span>
+        </div>
+        <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all text-primary" />
+      </div>
+
+      <h3 className="font-display font-black text-2xl md:text-3xl tracking-tight mb-4">
+        {p.title}
+      </h3>
+      <p className="text-muted-foreground leading-relaxed mb-6">{p.description}</p>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {p.stack.map((s) => (
+          <span
+            key={s}
+            className="font-mono text-[10px] tracking-[0.15em] border border-foreground/30 px-2 py-1"
+          >
+            {s}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex items-center justify-between border-t-2 border-foreground/20 pt-4">
+        <span className="font-mono text-[10px] tracking-[0.2em] text-primary">
+          STAT: {p.stat}
+        </span>
+        <div className="flex items-center gap-3">
+          {p.source && (
+            <a href={p.source} target="_blank" rel="noreferrer" aria-label="Source"
+              className="hover:text-primary transition-colors">
+              <Github className="h-4 w-4" />
+            </a>
+          )}
+          {p.live && (
+            <a href={p.live} target="_blank" rel="noreferrer" aria-label="Live"
+              className="hover:text-primary transition-colors">
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
+export function Work() {
+  return (
+    <section id="work" className="border-t-2 border-foreground py-24 md:py-32 grid-bg">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="flex items-end justify-between mb-14 flex-wrap gap-4">
+          <div>
+            <div className="font-mono text-xs tracking-[0.3em] text-primary mb-3">// 02 / WORK</div>
+            <h2 className="font-display font-black text-5xl md:text-7xl tracking-tighter">
+              SELECTED BUILDS
+            </h2>
+          </div>
+          <a
+            href="https://github.com/rajshah9305"
+            target="_blank"
+            rel="noreferrer"
+            className="font-mono text-xs tracking-[0.2em] inline-flex items-center gap-2 hover:text-primary transition-colors"
+          >
+            ALL REPOSITORIES <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PROJECTS.map((p, i) => (
+            <ProjectCard key={p.num} p={p} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
