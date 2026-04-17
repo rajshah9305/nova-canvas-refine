@@ -80,12 +80,12 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.08 }}
-      className="group relative brutal-border bg-card p-7 md:p-9 hover:brutal-shadow-primary transition-all hover:-translate-y-1"
+      className="group relative brutal-border bg-card p-6 md:p-8 flex flex-col hover:brutal-shadow-primary-sm transition-all hover:-translate-y-1"
     >
-      <div className="flex items-start justify-between mb-6">
-        <div className="flex items-center gap-3">
+      <div className="flex items-start justify-between mb-5">
+        <div className="flex items-center gap-2.5 flex-wrap">
           {p.featured && (
-            <span className="font-mono text-[10px] tracking-[0.3em] bg-primary text-primary-foreground px-2 py-1">
+            <span className="font-mono text-[10px] tracking-[0.25em] bg-primary text-primary-foreground px-2 py-1">
               FEATURED
             </span>
           )}
@@ -94,23 +94,25 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
         <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all text-primary" />
       </div>
 
-      <h3 className="font-display font-black text-2xl md:text-3xl tracking-tight mb-4">
+      <h3 className="font-display font-black text-xl md:text-2xl tracking-[-0.02em] mb-3 text-foreground break-words">
         {p.title}
       </h3>
-      <p className="text-muted-foreground leading-relaxed mb-6">{p.description}</p>
+      <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-5">
+        {p.description}
+      </p>
 
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-1.5 mb-5">
         {p.stack.map((s) => (
           <span
             key={s}
-            className="font-mono text-[10px] tracking-[0.15em] border border-foreground/30 px-2 py-1"
+            className="font-mono text-[10px] tracking-[0.15em] border border-foreground/30 px-2 py-1 text-foreground/80"
           >
             {s}
           </span>
         ))}
       </div>
 
-      <div className="flex items-center justify-between border-t-2 border-foreground/20 pt-4">
+      <div className="mt-auto flex items-center justify-between border-t-2 border-foreground/15 pt-4">
         <span className="font-mono text-[10px] tracking-[0.2em] text-primary">
           STAT: {p.stat}
         </span>
@@ -135,12 +137,14 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
 
 export function Work() {
   return (
-    <section id="work" className="border-t-2 border-foreground py-24 md:py-32 grid-bg">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="flex items-end justify-between mb-14 flex-wrap gap-4">
+    <section id="work" className="border-t-2 border-foreground py-20 md:py-32 grid-bg">
+      <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-10">
+        <div className="flex items-end justify-between mb-10 md:mb-14 flex-wrap gap-4">
           <div>
-            <div className="font-mono text-xs tracking-[0.3em] text-primary mb-3">// 02 / WORK</div>
-            <h2 className="font-display font-black text-5xl md:text-7xl tracking-tighter">
+            <div className="font-mono text-[11px] tracking-[0.3em] text-primary mb-3">
+              // 02 / WORK
+            </div>
+            <h2 className="font-display font-black text-4xl sm:text-5xl md:text-7xl tracking-[-0.03em] leading-[0.9]">
               SELECTED BUILDS
             </h2>
           </div>
@@ -148,13 +152,13 @@ export function Work() {
             href="https://github.com/rajshah9305"
             target="_blank"
             rel="noreferrer"
-            className="font-mono text-xs tracking-[0.2em] inline-flex items-center gap-2 hover:text-primary transition-colors"
+            className="font-mono text-[11px] tracking-[0.2em] inline-flex items-center gap-2 hover:text-primary transition-colors"
           >
             ALL REPOSITORIES <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {PROJECTS.map((p, i) => (
             <ProjectCard key={p.num} p={p} index={i} />
           ))}
