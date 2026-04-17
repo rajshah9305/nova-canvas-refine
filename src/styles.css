@@ -5,14 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Unified brutalist design system.
- * One palette, one type scale, one border weight, one shadow style.
+ * Editorial-brutalist design system — single unified theme.
  *
- * Type:
- *  - Display: Archivo (supports 800/900 weights cleanly)
- *  - Mono:    JetBrains Mono
- *
- * Color: paper / ink + a single signal accent (orange).
+ * Type:  Archivo (display) + JetBrains Mono (mono) + Fraunces (editorial italic accent)
+ * Color: warm paper / deep ink + single signal orange + faint cyan technical hint
+ * Surface: 2px ink borders, hard offset shadows, no radii.
  */
 
 @theme inline {
@@ -44,18 +41,19 @@
   --color-paper: var(--paper);
   --color-grid: var(--grid);
   --color-signal: var(--signal);
+  --color-tech: var(--tech);
 
-  --font-display: "Archivo", "Space Grotesk", system-ui, sans-serif;
+  --font-display: "Archivo", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-editorial: "Fraunces", "Times New Roman", serif;
 }
 
 :root {
   --radius: 0px;
 
-  /* Core palette — paper / ink */
-  --paper: oklch(0.975 0.006 90);       /* warm off-white */
-  --ink: oklch(0.18 0.012 270);          /* near-black, slight cool */
-  --grid: oklch(0.18 0.012 270 / 0.08);
+  --paper: oklch(0.972 0.008 85);          /* warm off-white */
+  --ink: oklch(0.16 0.012 270);            /* near-black */
+  --grid: oklch(0.16 0.012 270 / 0.07);
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -65,34 +63,34 @@
   --popover: var(--paper);
   --popover-foreground: var(--ink);
 
-  /* Single signal accent — orange */
-  --primary: oklch(0.66 0.20 41);
-  --primary-foreground: oklch(0.98 0 0);
-  --signal: oklch(0.74 0.18 152);        /* mint "available" dot only */
+  --primary: oklch(0.66 0.21 41);          /* signal orange */
+  --primary-foreground: oklch(0.99 0 0);
+  --signal: oklch(0.74 0.18 152);          /* mint live-dot */
+  --tech: oklch(0.62 0.13 220);            /* faint blue accent */
 
-  --secondary: oklch(0.93 0.008 90);
+  --secondary: oklch(0.93 0.008 85);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.93 0.008 90);
-  --muted-foreground: oklch(0.42 0.012 270); /* WCAG AA on paper */
+  --muted: oklch(0.93 0.008 85);
+  --muted-foreground: oklch(0.40 0.012 270);
   --accent: var(--primary);
-  --accent-foreground: oklch(0.98 0 0);
+  --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.55 0.22 27);
-  --destructive-foreground: oklch(0.98 0 0);
+  --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.18 0.012 270 / 0.18);
-  --input: oklch(0.18 0.012 270 / 0.22);
+  --border: oklch(0.16 0.012 270 / 0.18);
+  --input: oklch(0.16 0.012 270 / 0.22);
   --ring: var(--primary);
 
   --chart-1: var(--primary);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-2: var(--tech);
+  --chart-3: var(--signal);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
 
   --sidebar: var(--paper);
   --sidebar-foreground: var(--ink);
   --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
   --sidebar-accent: var(--secondary);
   --sidebar-accent-foreground: var(--ink);
   --sidebar-border: var(--border);
@@ -101,15 +99,15 @@
 
 .dark {
   --paper: oklch(0.13 0.012 270);
-  --ink: oklch(0.97 0.005 90);
-  --grid: oklch(0.97 0.005 90 / 0.06);
+  --ink: oklch(0.97 0.005 85);
+  --grid: oklch(0.97 0.005 85 / 0.06);
   --background: var(--paper);
   --foreground: var(--ink);
   --card: oklch(0.18 0.012 270);
   --card-foreground: var(--ink);
   --popover: var(--paper);
   --popover-foreground: var(--ink);
-  --primary: oklch(0.72 0.20 41);
+  --primary: oklch(0.72 0.21 41);
   --primary-foreground: oklch(0.13 0.012 270);
   --secondary: oklch(0.22 0.012 270);
   --secondary-foreground: var(--ink);
@@ -117,19 +115,14 @@
   --muted-foreground: oklch(0.72 0.012 270);
   --accent: var(--primary);
   --accent-foreground: oklch(0.13 0.012 270);
-  --border: oklch(0.97 0.005 90 / 0.18);
-  --input: oklch(0.97 0.005 90 / 0.22);
+  --border: oklch(0.97 0.005 85 / 0.18);
+  --input: oklch(0.97 0.005 85 / 0.22);
   --ring: var(--primary);
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-  }
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -139,28 +132,26 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-  ::selection {
-    background: var(--color-primary);
-    color: var(--color-primary-foreground);
-  }
+  ::selection { background: var(--color-primary); color: var(--color-primary-foreground); }
 }
 
 @layer utilities {
-  /* Unified background grid */
   .grid-bg {
     background-image:
       linear-gradient(to right, var(--grid) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
     background-size: 56px 56px;
   }
-  .grid-bg-sm {
-    background-image:
-      linear-gradient(to right, var(--grid) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-    background-size: 32px 32px;
+  .dot-bg {
+    background-image: radial-gradient(var(--grid) 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+  }
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    opacity: 0.04;
   }
 
-  /* Outline display type — uses paint-stroke which respects currentColor */
   .text-outline {
     -webkit-text-stroke: 1.5px var(--ink);
     color: transparent;
@@ -169,7 +160,6 @@
     .text-outline { -webkit-text-stroke-width: 2px; }
   }
 
-  /* Unified brutalist surface treatment */
   .brutal-border { border: 2px solid var(--ink); }
   .brutal-shadow { box-shadow: 6px 6px 0 0 var(--ink); }
   .brutal-shadow-sm { box-shadow: 4px 4px 0 0 var(--ink); }
@@ -178,17 +168,29 @@
 
   .font-mono { font-family: var(--font-mono); }
   .font-display { font-family: var(--font-display); }
+  .font-editorial { font-family: var(--font-editorial); font-style: italic; font-optical-sizing: auto; }
 
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
+  .ink-rule { background: var(--ink); height: 2px; width: 100%; }
+
+  @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
   .cursor-blink { animation: blink 1.05s step-end infinite; }
 
   @keyframes pulse-ring {
-    0%   { box-shadow: 0 0 0 0 var(--signal); }
-    70%  { box-shadow: 0 0 0 8px transparent; }
+    0% { box-shadow: 0 0 0 0 var(--signal); }
+    70% { box-shadow: 0 0 0 8px transparent; }
     100% { box-shadow: 0 0 0 0 transparent; }
   }
   .pulse-ring { animation: pulse-ring 2s infinite; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 35s linear infinite; }
+
+  /* Vertical writing for side-rail labels */
+  .vertical-rl {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
 }

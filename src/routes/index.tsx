@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Hero } from "@/components/Hero";
+import { Marquee } from "@/components/Marquee";
 import { Expertise } from "@/components/Expertise";
 import { Work } from "@/components/Work";
 import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { SideRail } from "@/components/SideRail";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,9 +32,12 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <ScrollProgress />
+      <SideRail />
       <SiteHeader />
       <main>
         <Hero />
+        <Marquee />
         <Expertise />
         <Work />
         <Experience />
