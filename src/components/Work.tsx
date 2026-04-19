@@ -39,39 +39,39 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
         {p.num}
       </span>
 
-      <div className="relative p-6 md:p-8 flex flex-col flex-1">
-        <div className="flex items-start justify-between mb-5">
-          <div className="flex items-center gap-2.5 flex-wrap">
+      <div className="relative p-5 sm:p-6 md:p-8 flex flex-col flex-1">
+        <div className="flex items-start justify-between mb-4 sm:mb-5">
+          <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
             {p.featured && (
-              <span className="font-mono text-[10px] tracking-[0.25em] bg-primary text-primary-foreground px-2 py-1">
+              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] bg-primary text-primary-foreground px-1.5 sm:px-2 py-0.5 sm:py-1">
                 FEATURED
               </span>
             )}
-            <span className="font-mono text-xs text-muted-foreground">PROJECT — {p.num}</span>
+            <span className="font-mono text-[11px] sm:text-xs text-muted-foreground">PROJECT — {p.num}</span>
           </div>
           <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all text-primary" />
         </div>
 
-        <h3 className="font-display font-black text-xl md:text-2xl tracking-[-0.02em] mb-3 text-foreground break-words">
+        <h3 className="font-display font-black text-lg sm:text-xl md:text-2xl tracking-[-0.02em] mb-3 text-foreground break-words">
           {p.title}
         </h3>
-        <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-5">
+        <p className="text-muted-foreground leading-relaxed text-[13px] sm:text-sm md:text-base mb-4 sm:mb-5">
           {p.description}
         </p>
 
-        <div className="flex flex-wrap gap-1.5 mb-5">
+        <div className="flex flex-wrap gap-1.5 mb-4 sm:mb-5">
           {p.stack.map((s) => (
             <span
               key={s}
-              className="font-mono text-[10px] tracking-[0.15em] border border-foreground/30 px-2 py-1 text-foreground/80 group-hover:border-primary/60 transition-colors"
+              className="font-mono text-[9px] sm:text-[10px] tracking-[0.15em] border border-foreground/30 px-1.5 sm:px-2 py-0.5 sm:py-1 text-foreground/80 group-hover:border-primary/60 transition-colors"
             >
               {s}
             </span>
           ))}
         </div>
 
-        <div className="mt-auto flex items-center justify-between border-t-2 border-foreground/15 pt-4">
-          <span className="font-mono text-[10px] tracking-[0.2em] text-primary">
+        <div className="mt-auto flex items-center justify-between border-t-2 border-foreground/15 pt-3.5 sm:pt-4">
+          <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] text-primary">
             ◆ {p.stat}
           </span>
           <div className="flex items-center gap-3">
@@ -94,8 +94,8 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
 
 export function Work() {
   return (
-    <section id="work" className="border-t-2 border-foreground py-20 md:py-32 grid-bg">
-      <div className="mx-auto max-w-7xl px-5 md:px-12 lg:px-16">
+    <section id="work" className="border-t-2 border-foreground py-16 sm:py-20 md:py-32 grid-bg">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeader
           index="02"
           kicker="WORK"
