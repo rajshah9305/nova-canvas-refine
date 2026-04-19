@@ -10,9 +10,9 @@ const STACKS = [
 
 export function Expertise() {
   return (
-    <section id="expertise" className="border-t-2 border-foreground py-20 md:py-32 bg-background relative">
-      <div className="absolute inset-0 dot-bg opacity-60 pointer-events-none" />
-      <div className="relative mx-auto max-w-7xl px-5 md:px-12 lg:px-16">
+    <section id="expertise" className="border-t-2 border-foreground py-16 sm:py-20 md:py-32 bg-background relative">
+      <div className="absolute inset-0 dot-bg opacity-50 pointer-events-none" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeader
           index="01"
           kicker="EXPERTISE"
@@ -33,13 +33,13 @@ export function Expertise() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group brutal-border bg-card p-6 hover:brutal-shadow-primary-sm transition-all hover:-translate-y-1 relative"
+              className="group brutal-border bg-card p-5 sm:p-6 hover:brutal-shadow-primary-sm transition-all hover:-translate-y-1 relative"
             >
-              <div className="flex items-start justify-between mb-5">
-                <div className="font-mono text-[11px] tracking-[0.2em] text-primary">
+              <div className="flex items-start justify-between mb-4 sm:mb-5">
+                <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-primary">
                   // {s.title.toUpperCase()}
                 </div>
-                <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground border border-foreground/20 px-1.5 py-0.5">
+                <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] text-muted-foreground border border-foreground/20 px-1.5 py-0.5">
                   {s.tag}
                 </span>
               </div>
@@ -47,7 +47,7 @@ export function Expertise() {
                 {s.items.map((it, idx) => (
                   <li
                     key={it}
-                    className="font-display font-semibold text-base md:text-lg flex items-center gap-3 text-foreground"
+                    className="font-display font-semibold text-[15px] sm:text-base md:text-lg flex items-center gap-3 text-foreground"
                   >
                     <span className="font-mono text-[10px] text-muted-foreground w-5">
                       {String(idx + 1).padStart(2, "0")}
