@@ -8,11 +8,14 @@ export function Hero() {
       id="hero"
       className="relative min-h-[100svh] pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-background"
     >
-      <div className="absolute inset-0 grid-bg opacity-60" />
-      <div className="absolute inset-0 hidden md:block">
+      <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 hidden md:block pointer-events-none">
         <HeroCanvas />
       </div>
       <div className="absolute inset-0 noise-bg pointer-events-none" />
+      {/* signal-orange corner ticks */}
+      <span className="absolute top-24 left-5 md:left-12 h-3 w-3 border-t-2 border-l-2 border-primary pointer-events-none" />
+      <span className="absolute top-24 right-5 md:right-12 h-3 w-3 border-t-2 border-r-2 border-primary pointer-events-none" />
 
       {/* Top meta strip */}
       <div className="relative mx-auto max-w-7xl px-5 md:px-12 lg:px-16">
@@ -24,8 +27,14 @@ export function Hero() {
         >
           <div className="flex items-center gap-2.5">
             <span className="relative inline-flex h-2.5 w-2.5">
-              <span className="absolute inset-0 rounded-full bg-signal pulse-ring" />
-              <span className="relative rounded-full h-2.5 w-2.5 bg-signal" />
+              <span
+                className="absolute inset-0 rounded-full pulse-ring"
+                style={{ background: "var(--signal)" }}
+              />
+              <span
+                className="relative rounded-full h-2.5 w-2.5"
+                style={{ background: "var(--signal)" }}
+              />
             </span>
             AVAILABLE / Q1—Q2 ENGAGEMENTS
           </div>

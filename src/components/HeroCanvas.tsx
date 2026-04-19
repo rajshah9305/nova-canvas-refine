@@ -74,13 +74,13 @@ export function HeroCanvas() {
     const onLeave = () => { mouse.current.active = false; };
     const onResize = () => { dpr = Math.min(window.devicePixelRatio || 1, 2); resize(); };
 
-    canvas.addEventListener("pointermove", onMove);
-    canvas.addEventListener("pointerleave", onLeave);
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerleave", onLeave);
     window.addEventListener("resize", onResize);
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      canvas.removeEventListener("pointermove", onMove);
-      canvas.removeEventListener("pointerleave", onLeave);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerleave", onLeave);
       window.removeEventListener("resize", onResize);
     };
   }, []);
@@ -88,7 +88,7 @@ export function HeroCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-auto"
+      className="absolute inset-0 w-full h-full"
       aria-hidden
     />
   );
