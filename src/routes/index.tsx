@@ -8,6 +8,7 @@ import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { SideRail } from "@/components/SideRail";
+import { CustomCursor } from "@/components/CustomCursor";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,6 +33,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <CustomCursor />
       <ScrollProgress />
       <SideRail />
       <SiteHeader />

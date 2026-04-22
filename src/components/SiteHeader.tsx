@@ -46,15 +46,14 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+        <nav className="hidden md:flex items-center gap-1 brutal-border bg-card/60 backdrop-blur-sm px-1.5 py-1.5">
           {NAV.map((n) => (
             <a
               key={n.label}
               href={n.href}
-              className="font-mono text-[11px] tracking-[0.2em] text-foreground hover:text-primary transition-colors relative group"
+              className="font-mono text-[11px] tracking-[0.2em] text-foreground hover:text-primary-foreground hover:bg-primary px-3.5 py-2 transition-colors"
             >
               {n.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all group-hover:w-full" />
             </a>
           ))}
         </nav>

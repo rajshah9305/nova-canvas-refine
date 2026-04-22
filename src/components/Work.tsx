@@ -29,7 +29,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.08 }}
-      className="group relative brutal-border bg-card flex flex-col hover:brutal-shadow-primary-sm transition-all hover:-translate-y-1 overflow-hidden"
+      className="group sheen relative brutal-border bg-card flex flex-col hover:brutal-shadow-primary-sm transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
     >
       {/* Giant ghost numeral */}
       <span
