@@ -42,7 +42,7 @@ export function StoryProgress() {
 
       {/* Chapter card — top right under header */}
       <motion.div
-        initial={{ opacity: 0, y: -8 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
         className="fixed top-[72px] md:top-[88px] right-3 md:right-12 z-40 brutal-border bg-background/90 backdrop-blur-md px-3 py-2 md:px-4 md:py-2.5 pointer-events-none"
