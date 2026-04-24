@@ -20,7 +20,7 @@ export function Hero() {
       {/* Top meta strip */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="flex items-center justify-between gap-3 font-mono text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] text-foreground/70 mb-8 sm:mb-10 md:mb-14"
@@ -54,7 +54,7 @@ export function Hero() {
 
         <h1 className="font-display font-black leading-[0.85] sm:leading-[0.82] tracking-[-0.04em] sm:tracking-[-0.045em]">
           <motion.span
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05 }}
             className="block text-[clamp(3.75rem,18vw,12rem)]"
@@ -62,7 +62,7 @@ export function Hero() {
             RAJ
           </motion.span>
           <motion.span
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             className="block text-outline text-[clamp(3.75rem,18vw,12rem)] relative"
@@ -76,7 +76,7 @@ export function Hero() {
 
         {/* Role line — split editorial */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
           className="mt-5 sm:mt-6 md:mt-8 grid md:grid-cols-[auto_1fr] items-end gap-x-6 gap-y-2"
@@ -95,7 +95,7 @@ export function Hero() {
 
         {/* Description — two-column editorial */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.45 }}
           className="mt-8 sm:mt-10 md:mt-12 grid md:grid-cols-12 gap-6 md:gap-10 max-w-5xl"
@@ -114,7 +114,7 @@ export function Hero() {
 
         {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.55 }}
           className="mt-8 sm:mt-10 md:mt-12 flex flex-col sm:flex-row gap-3.5 sm:gap-5"
@@ -139,7 +139,7 @@ export function Hero() {
 
         {/* Stat ribbon */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.7 }}
           className="mt-12 sm:mt-14 md:mt-20 grid grid-cols-2 md:grid-cols-4 brutal-border bg-card divide-x-2 divide-foreground/15"
