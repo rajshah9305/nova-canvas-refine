@@ -14,8 +14,8 @@ export function Expertise() {
       <div className="absolute inset-0 dot-bg opacity-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeader
-          index="01"
-          kicker="EXPERTISE"
+          index="II"
+          kicker="EXPERTISE · CHAPTER TWO"
           title={
             <>
               THE <span className="font-editorial text-primary">toolkit</span>

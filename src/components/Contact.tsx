@@ -20,7 +20,7 @@ export function Contact() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-16">
         <div className="flex items-baseline gap-3 sm:gap-4 mb-5 sm:mb-6">
           <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] text-primary">
-            // 04 / INITIATE PROTOCOL
+            // V / FINAL CHAPTER · INITIATE PROTOCOL
           </span>
           <span className="flex-1 h-px bg-background/20" />
           <span className="font-mono text-[10px] tracking-[0.3em] text-background/55 hidden sm:inline">

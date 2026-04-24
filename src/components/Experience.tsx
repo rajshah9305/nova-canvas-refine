@@ -30,8 +30,8 @@ export function Experience() {
     <section id="experience" className="border-t-2 border-foreground py-16 sm:py-20 md:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeader
-          index="03"
-          kicker="EXPERIENCE"
+          index="IV"
+          kicker="EXPERIENCE · CHAPTER FOUR"
           title={
             <>
               THE <span className="font-editorial text-primary">timeline</span>
