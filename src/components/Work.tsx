@@ -97,8 +97,8 @@ export function Work() {
     <section id="work" className="border-t-2 border-foreground py-16 sm:py-20 md:py-32 grid-bg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-16">
         <SectionHeader
-          index="02"
-          kicker="WORK"
+          index="III"
+          kicker="WORK · CHAPTER THREE"
           title={
             <>
               SELECTED <span className="font-editorial text-primary">builds</span>

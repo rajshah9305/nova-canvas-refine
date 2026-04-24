@@ -41,10 +41,14 @@ export function Hero() {
           <span className="hidden sm:inline">PORTFOLIO · V.04 · 2026</span>
         </motion.div>
 
-        {/* Editorial label */}
-        <div className="flex items-center gap-3 mb-4 md:mb-6">
+        {/* Editorial label — Chapter I opener */}
+        <div className="flex items-center gap-3 mb-4 md:mb-6 flex-wrap">
+          <span className="font-editorial text-primary text-lg sm:text-xl md:text-2xl leading-none">
+            Chapter I
+          </span>
+          <span className="h-3 w-px bg-foreground/30" />
           <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] text-primary">
-            ENGINEER · BUILDER · OPERATOR
+            THE ORIGIN · ENGINEER · BUILDER · OPERATOR
           </span>
         </div>
 
