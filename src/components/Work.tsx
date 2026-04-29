@@ -51,10 +51,10 @@ function ProjectCard({ p }: { p: Project }) {
           <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 text-primary" />
         </div>
 
-        <h3 className="font-display font-black text-lg sm:text-xl md:text-2xl tracking-[-0.02em] mb-3 text-foreground break-words">
+        <h3 className="t-h4 mb-3 text-foreground break-words uppercase">
           {p.title}
         </h3>
-        <p className="text-muted-foreground leading-relaxed text-[13px] sm:text-sm md:text-base mb-4 sm:mb-5">
+        <p className="t-body text-muted-foreground mb-4 sm:mb-5">
           {p.description}
         </p>
 
