@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Github, ArrowDown } from "lucide-react";
 import { HeroCanvas } from "./HeroCanvas";
+import { Magnetic } from "./Magnetic";
 
 export function Hero() {
   return (
@@ -119,22 +120,28 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.55 }}
           className="mt-8 sm:mt-10 md:mt-12 flex flex-col sm:flex-row gap-3.5 sm:gap-5"
         >
-          <a
-            href="mailto:contact@rajai.org"
-            className="group inline-flex items-center justify-center gap-3 brutal-border bg-foreground text-background font-mono text-[10px] sm:text-[11px] tracking-[0.2em] px-5 py-3.5 sm:px-6 sm:py-4 brutal-shadow-primary-sm sm:brutal-shadow-primary hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
-          >
-            <Mail className="h-4 w-4 transition-transform group-hover:rotate-12" />
-            INITIALIZE CONTACT
-          </a>
-          <a
-            href="https://github.com/rajshah9305"
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center justify-center gap-3 brutal-border bg-background text-foreground font-mono text-[10px] sm:text-[11px] tracking-[0.2em] px-5 py-3.5 sm:px-6 sm:py-4 brutal-shadow-sm sm:brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
-          >
-            <Github className="h-4 w-4 transition-transform group-hover:rotate-12" />
-            VIEW GITHUB
-          </a>
+          <Magnetic>
+            <a
+              href="mailto:contact@rajai.org"
+              data-cursor="EMAIL"
+              className="group inline-flex items-center justify-center gap-3 brutal-border bg-foreground text-background font-mono text-[10px] sm:text-[11px] tracking-[0.2em] px-5 py-3.5 sm:px-6 sm:py-4 brutal-shadow-primary-sm sm:brutal-shadow-primary hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200"
+            >
+              <Mail className="h-4 w-4 transition-transform group-hover:rotate-12" />
+              INITIALIZE CONTACT
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a
+              href="https://github.com/rajshah9305"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="OPEN"
+              className="group inline-flex items-center justify-center gap-3 brutal-border bg-background text-foreground font-mono text-[10px] sm:text-[11px] tracking-[0.2em] px-5 py-3.5 sm:px-6 sm:py-4 brutal-shadow-sm sm:brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200"
+            >
+              <Github className="h-4 w-4 transition-transform group-hover:rotate-12" />
+              VIEW GITHUB
+            </a>
+          </Magnetic>
         </motion.div>
 
         {/* Stat ribbon */}
@@ -150,17 +157,21 @@ export function Hero() {
             { k: "10K+", v: "AI INFERENCES/DAY" },
             { k: "99.9%", v: "UPTIME SLA" },
           ].map((s, i) => (
-            <div
+            <motion.div
               key={s.v}
-              className={`p-4 sm:p-5 md:p-6 ${i >= 2 ? "border-t-2 md:border-t-0 border-foreground/15" : ""}`}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: 0.75 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+              className={`group p-4 sm:p-5 md:p-6 transition-colors hover:bg-primary/5 ${i >= 2 ? "border-t-2 md:border-t-0 border-foreground/15" : ""}`}
             >
-              <div className="font-display font-black text-2xl sm:text-3xl md:text-5xl tracking-tight text-foreground">
+              <div className="font-display font-black text-2xl sm:text-3xl md:text-5xl tracking-tight text-foreground transition-colors group-hover:text-primary">
                 {s.k}
               </div>
               <div className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] text-muted-foreground mt-1.5 sm:mt-2">
                 {s.v}
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
