@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Github, ArrowUpRight } from "lucide-react";
+import { Magnetic } from "./Magnetic";
 
 export function Contact() {
   return (
@@ -57,23 +58,29 @@ export function Contact() {
         </div>
 
         <div className="mt-8 sm:mt-10 md:mt-12 flex flex-col sm:flex-row gap-3.5 sm:gap-5">
-          <a
-            href="mailto:contact@rajai.org"
-            className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground font-mono text-[10px] sm:text-[11px] tracking-[0.2em] px-5 py-3.5 sm:px-6 sm:py-4 border-2 border-primary hover:bg-background hover:text-foreground hover:border-background transition-colors"
-          >
-            <Mail className="h-4 w-4" />
-            EMAIL ME
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
-          <a
-            href="https://github.com/rajshah9305"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center gap-3 border-2 border-background text-background font-mono text-[10px] sm:text-[11px] tracking-[0.2em] px-5 py-3.5 sm:px-6 sm:py-4 hover:bg-background hover:text-foreground transition-colors"
-          >
-            <Github className="h-4 w-4" />
-            GITHUB
-          </a>
+          <Magnetic>
+            <a
+              href="mailto:contact@rajai.org"
+              data-cursor="EMAIL"
+              className="group inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground font-mono text-[10px] sm:text-[11px] tracking-[0.2em] px-5 py-3.5 sm:px-6 sm:py-4 border-2 border-primary hover:bg-background hover:text-foreground hover:border-background transition-colors duration-200"
+            >
+              <Mail className="h-4 w-4" />
+              EMAIL ME
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a
+              href="https://github.com/rajshah9305"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="OPEN"
+              className="inline-flex items-center justify-center gap-3 border-2 border-background text-background font-mono text-[10px] sm:text-[11px] tracking-[0.2em] px-5 py-3.5 sm:px-6 sm:py-4 hover:bg-background hover:text-foreground transition-colors duration-200"
+            >
+              <Github className="h-4 w-4" />
+              GITHUB
+            </a>
+          </Magnetic>
         </div>
 
         <div className="mt-16 sm:mt-20 md:mt-28 pt-6 md:pt-8 border-t border-background/20 grid sm:grid-cols-3 gap-3 sm:gap-4 font-mono text-[9px] sm:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] text-background/55">
