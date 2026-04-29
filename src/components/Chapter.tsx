@@ -36,11 +36,11 @@ export function Chapter({ num, title, whisper, narration }: Props) {
             className="md:col-span-8 md:pt-8"
           >
             {whisper && (
-              <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.3em] text-muted-foreground mb-4">
+              <div className="t-mono-sm text-muted-foreground mb-4">
                 — {whisper.toUpperCase()}
               </div>
             )}
-            <h2 className="font-display font-black text-[1.875rem] sm:text-5xl md:text-7xl tracking-[-0.035em] leading-[0.9] mb-5 md:mb-8">
+            <h2 className="t-h2 mb-5 md:mb-8">
               {title}
             </h2>
             <div className="font-editorial text-base sm:text-xl md:text-2xl leading-relaxed text-foreground/85 max-w-2xl drop-cap">

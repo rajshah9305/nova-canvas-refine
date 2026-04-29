@@ -65,13 +65,13 @@ export function Experience() {
                 <span className="absolute left-0 md:left-[calc(28%-7px)] top-1.5 h-3.5 w-3.5 bg-primary brutal-border transition-transform duration-300 group-hover:scale-125 group-hover:rotate-45" />
 
                 <div>
-                  <h3 className="font-display font-black text-lg sm:text-xl md:text-3xl tracking-[-0.02em] text-foreground">
+                  <h3 className="t-h3 text-foreground">
                     {it.role}
                   </h3>
                   <div className="font-editorial text-primary text-[15px] sm:text-base md:text-xl mt-1 sm:mt-1.5 mb-2.5 sm:mb-3">
                     {it.org}
                   </div>
-                  <p className="text-muted-foreground leading-relaxed text-[13px] sm:text-sm md:text-base max-w-2xl">
+                  <p className="t-body text-muted-foreground max-w-2xl">
                     {it.body}
                   </p>
                 </div>

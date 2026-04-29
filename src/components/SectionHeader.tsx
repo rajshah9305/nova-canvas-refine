@@ -12,11 +12,11 @@ export function SectionHeader({ index, kicker, title, caption, align = "split" }
   return (
     <header className="mb-8 sm:mb-10 md:mb-14">
       <div className="flex items-baseline gap-3 sm:gap-4 mb-4 sm:mb-5">
-        <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] text-primary">
+        <span className="t-mono-sm text-primary normal-case tracking-[0.3em]">
           // {index} / {kicker}
         </span>
         <span className="flex-1 h-px bg-foreground/20" />
-        <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground hidden sm:inline">
+        <span className="t-mono-sm text-muted-foreground hidden sm:inline">
           [SECTION]
         </span>
       </div>
@@ -27,11 +27,11 @@ export function SectionHeader({ index, kicker, title, caption, align = "split" }
             : ""
         }
       >
-        <h2 className="font-display font-black text-[2.25rem] sm:text-5xl md:text-7xl tracking-[-0.035em] leading-[0.9] sm:leading-[0.88]">
+        <h2 className="t-h2">
           {title}
         </h2>
         {caption && (
-          <p className="font-mono text-[11px] sm:text-xs text-muted-foreground max-w-xs leading-relaxed">
+          <p className="t-mono normal-case tracking-[0.18em] text-muted-foreground max-w-xs leading-relaxed">
             {caption}
           </p>
         )}

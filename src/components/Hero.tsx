@@ -57,13 +57,13 @@ export function Hero() {
             </span>
           </StaggerItem>
 
-          <h1 className="font-display font-black leading-[0.85] sm:leading-[0.82] tracking-[-0.04em] sm:tracking-[-0.045em]">
-            <StaggerItem as="span" className="block text-[clamp(3.5rem,17vw,12rem)]">
+          <h1 className="font-display font-black leading-[var(--leading-display)] tracking-[var(--tracking-display)]">
+            <StaggerItem as="span" className="block t-display">
               RAJ
             </StaggerItem>
             <StaggerItem
               as="span"
-              className="block text-outline text-[clamp(3.5rem,17vw,12rem)] relative"
+              className="block t-display text-outline relative"
             >
               SHAH
               <span className="absolute -right-1 top-1 sm:-right-2 sm:top-2 font-editorial text-primary text-xl sm:text-2xl md:text-4xl not-italic">
@@ -89,7 +89,7 @@ export function Hero() {
             <div className="md:col-span-1 hidden md:block">
               <span className="font-editorial text-primary text-4xl leading-none">§</span>
             </div>
-            <p className="md:col-span-11 text-[14px] sm:text-[15px] md:text-lg text-foreground/85 leading-relaxed max-w-2xl">
+            <p className="md:col-span-11 t-lead max-w-2xl">
               I architect high-performance digital ecosystems and intelligent agents.
               Specializing in <span className="font-editorial text-primary">Next.js</span>,{" "}
               <span className="font-editorial text-primary">Python</span>, and scalable
@@ -137,10 +137,10 @@ export function Hero() {
                 i >= 2 ? "border-t-2 md:border-t-0 border-foreground/15" : ""
               }`}
             >
-              <div className="font-display font-black text-2xl sm:text-3xl md:text-5xl tracking-tight text-foreground transition-colors group-hover:text-primary">
+              <div className="font-display font-black t-numeric text-2xl sm:text-3xl md:text-5xl tracking-tight text-foreground transition-colors group-hover:text-primary">
                 {s.k}
               </div>
-              <div className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] text-muted-foreground mt-1.5 sm:mt-2">
+              <div className="t-mono-sm text-muted-foreground mt-1.5 sm:mt-2">
                 {s.v}
               </div>
             </motion.div>

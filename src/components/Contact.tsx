@@ -34,7 +34,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-12% 0px -12% 0px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-black text-[2.25rem] sm:text-6xl md:text-8xl lg:text-[10rem] tracking-[-0.04em] sm:tracking-[-0.045em] leading-[0.88] sm:leading-[0.82]"
+          className="font-display font-black t-numeric text-[clamp(2.25rem,1rem+8vw,10rem)] tracking-[var(--tracking-display)] leading-[0.86]"
         >
           LET&apos;S BUILD <br />
           <span className="font-editorial text-primary">something</span> <br />
@@ -45,7 +45,7 @@ export function Contact() {
         </motion.h2>
 
         <div className="mt-8 sm:mt-10 md:mt-12 grid md:grid-cols-12 gap-5 sm:gap-6 md:gap-10">
-          <p className="md:col-span-7 text-background/80 text-[14px] sm:text-base md:text-lg leading-relaxed max-w-xl">
+          <p className="md:col-span-7 t-lead text-background/80 max-w-xl">
             Currently accepting new opportunities. Whether it&apos;s an AI platform,
             a systems overhaul, or a zero-to-one product — let&apos;s talk.
           </p>
