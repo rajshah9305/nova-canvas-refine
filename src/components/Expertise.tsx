@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "./SectionHeader";
+import { StaggerGroup } from "./Reveal";
+import { item } from "@/lib/motion";
 
 const STACKS = [
   { tag: "L01", title: "Languages", items: ["TypeScript", "Python", "Rust", "SQL", "HTML/CSS"] },
@@ -25,15 +27,15 @@ export function Expertise() {
           caption="A curated arsenal of languages, frameworks, and infrastructure I deploy daily."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {STACKS.map((s, i) => (
+        <StaggerGroup
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6"
+          gap={0.08}
+        >
+          {STACKS.map((s) => (
             <motion.div
               key={s.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group brutal-border bg-card p-5 sm:p-6 hover:brutal-shadow-primary-sm transition-all hover:-translate-y-1 relative"
+              variants={item}
+              className="group brutal-border bg-card p-5 sm:p-6 hover:brutal-shadow-primary-sm transition-all duration-300 hover:-translate-y-1 relative"
             >
               <div className="flex items-start justify-between mb-4 sm:mb-5">
                 <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-primary">
@@ -52,14 +54,14 @@ export function Expertise() {
                     <span className="font-mono text-[10px] text-muted-foreground w-5">
                       {String(idx + 1).padStart(2, "0")}
                     </span>
-                    <span className="h-px flex-1 bg-foreground/15 group-hover:bg-primary transition-colors" />
+                    <span className="h-px flex-1 bg-foreground/15 group-hover:bg-primary transition-colors duration-300" />
                     <span>{it}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

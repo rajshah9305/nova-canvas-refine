@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
+import { StaggerGroup } from "./Reveal";
+import { item } from "@/lib/motion";
 
 type Project = {
   num: string;
@@ -22,20 +24,16 @@ const PROJECTS: Project[] = [
   { num: "06", title: "DISTRIBUTED_SYSTEMS_API", description: "High-throughput microservices architecture engineered for real-time data streaming with sub-millisecond latency.", stack: ["Rust", "gRPC", "PostgreSQL", "Kafka"], stat: "<1MS LATENCY", source: "https://github.com/rajshah9305/distributed-systems-api" },
 ];
 
-function ProjectCard({ p, index }: { p: Project; index: number }) {
+function ProjectCard({ p }: { p: Project }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      variants={item}
       data-cursor={p.live ? "VIEW" : "OPEN"}
       className="group sheen relative brutal-border bg-card flex flex-col hover:brutal-shadow-primary-sm transition-all duration-300 ease-out hover:-translate-y-1.5 overflow-hidden"
     >
-      {/* Giant ghost numeral */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -right-4 -top-10 font-display font-black text-[10rem] leading-none tracking-tighter text-foreground/[0.04] group-hover:text-primary/15 transition-colors select-none"
+        className="pointer-events-none absolute -right-4 -top-10 font-display font-black text-[8rem] sm:text-[10rem] leading-none tracking-tighter text-foreground/[0.04] group-hover:text-primary/15 transition-colors duration-500 select-none"
       >
         {p.num}
       </span>
@@ -50,7 +48,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
             )}
             <span className="font-mono text-[11px] sm:text-xs text-muted-foreground">PROJECT — {p.num}</span>
           </div>
-          <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all text-primary" />
+          <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300 text-primary" />
         </div>
 
         <h3 className="font-display font-black text-lg sm:text-xl md:text-2xl tracking-[-0.02em] mb-3 text-foreground break-words">
@@ -64,7 +62,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
           {p.stack.map((s) => (
             <span
               key={s}
-              className="font-mono text-[9px] sm:text-[10px] tracking-[0.15em] border border-foreground/30 px-1.5 sm:px-2 py-0.5 sm:py-1 text-foreground/80 group-hover:border-primary/60 transition-colors"
+              className="font-mono text-[9px] sm:text-[10px] tracking-[0.15em] border border-foreground/30 px-1.5 sm:px-2 py-0.5 sm:py-1 text-foreground/80 group-hover:border-primary/60 transition-colors duration-300"
             >
               {s}
             </span>
@@ -118,11 +116,14 @@ export function Work() {
           }
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {PROJECTS.map((p, i) => (
-            <ProjectCard key={p.num} p={p} index={i} />
+        <StaggerGroup
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+          gap={0.09}
+        >
+          {PROJECTS.map((p) => (
+            <ProjectCard key={p.num} p={p} />
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );
