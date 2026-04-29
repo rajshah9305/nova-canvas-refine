@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "./SectionHeader";
+import { StaggerGroup } from "./Reveal";
+import { item } from "@/lib/motion";
 
 const ITEMS = [
   {
@@ -44,14 +46,11 @@ export function Experience() {
         <div className="relative">
           <div className="absolute left-[7px] md:left-[calc(28%-1px)] top-2 bottom-2 w-0.5 bg-foreground/20" />
 
-          <div className="space-y-8 sm:space-y-10 md:space-y-14">
-            {ITEMS.map((it, i) => (
+          <StaggerGroup className="space-y-8 sm:space-y-10 md:space-y-14" gap={0.1}>
+            {ITEMS.map((it) => (
               <motion.div
                 key={it.role}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                variants={item}
                 className="group grid md:grid-cols-[28%_1fr] gap-2.5 md:gap-10 relative pl-7 sm:pl-8 md:pl-0"
               >
                 <div className="md:text-right md:pr-10 flex md:block items-center gap-3 flex-wrap">
@@ -63,7 +62,7 @@ export function Experience() {
                   </div>
                 </div>
 
-                <span className="absolute left-0 md:left-[calc(28%-7px)] top-1.5 h-3.5 w-3.5 bg-primary brutal-border transition-transform duration-300 group-hover:scale-125" />
+                <span className="absolute left-0 md:left-[calc(28%-7px)] top-1.5 h-3.5 w-3.5 bg-primary brutal-border transition-transform duration-300 group-hover:scale-125 group-hover:rotate-45" />
 
                 <div>
                   <h3 className="font-display font-black text-lg sm:text-xl md:text-3xl tracking-[-0.02em] text-foreground">
@@ -78,7 +77,7 @@ export function Experience() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
     </section>

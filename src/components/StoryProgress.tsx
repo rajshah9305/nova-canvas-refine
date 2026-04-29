@@ -40,12 +40,12 @@ export function StoryProgress() {
         <motion.div className="h-full bg-primary origin-left" style={{ scaleX }} />
       </div>
 
-      {/* Chapter card — top right under header */}
+      {/* Chapter card — hidden on small mobile to avoid header crowding */}
       <motion.div
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="fixed top-[72px] md:top-[88px] right-3 md:right-12 z-40 brutal-border bg-background/90 backdrop-blur-md px-3 py-2 md:px-4 md:py-2.5 pointer-events-none"
+        className="hidden sm:block fixed top-[72px] md:top-[88px] right-3 md:right-12 z-40 brutal-border bg-background/90 backdrop-blur-md px-3 py-2 md:px-4 md:py-2.5 pointer-events-none"
       >
         <div className="flex items-center gap-2.5 md:gap-3">
           <span className="font-editorial text-primary text-base md:text-lg leading-none">

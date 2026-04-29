@@ -32,9 +32,9 @@ export function Contact() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-display font-black text-[2.5rem] sm:text-6xl md:text-8xl lg:text-[10rem] tracking-[-0.04em] sm:tracking-[-0.045em] leading-[0.88] sm:leading-[0.82]"
+          viewport={{ once: true, margin: "-12% 0px -12% 0px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display font-black text-[2.25rem] sm:text-6xl md:text-8xl lg:text-[10rem] tracking-[-0.04em] sm:tracking-[-0.045em] leading-[0.88] sm:leading-[0.82]"
         >
           LET&apos;S BUILD <br />
           <span className="font-editorial text-primary">something</span> <br />
