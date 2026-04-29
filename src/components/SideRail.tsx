@@ -44,8 +44,8 @@ export function SideRail() {
   return (
     <>
       {/* Left rail — section index */}
-      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-10 z-40 flex-col items-center justify-center pointer-events-none">
-        <div className="brutal-border bg-background py-6 px-1.5 flex flex-col items-center gap-5 pointer-events-auto">
+      <aside className="hidden xl:flex fixed left-0 top-0 bottom-0 w-10 z-30 flex-col items-center justify-center pointer-events-none">
+        <div className="brutal-border bg-background/90 backdrop-blur-sm py-6 px-1.5 flex flex-col items-center gap-5 pointer-events-auto">
           {SECTIONS.map((s, i) => (
             <a
               key={s.id}
@@ -71,7 +71,7 @@ export function SideRail() {
       </aside>
 
       {/* Right rail — coords + clock */}
-      <aside className="hidden lg:flex fixed right-0 top-0 bottom-0 w-10 z-40 flex-col items-center justify-between py-28 pointer-events-none">
+      <aside className="hidden xl:flex fixed right-0 top-0 bottom-0 w-10 z-30 flex-col items-center justify-between py-40 pointer-events-none">
         <div className="vertical-rl font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
           LAT 40.7128° N / LON 74.0060° W
         </div>

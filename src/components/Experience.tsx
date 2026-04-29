@@ -52,7 +52,7 @@ export function Experience() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="grid md:grid-cols-[28%_1fr] gap-2.5 md:gap-10 relative pl-7 sm:pl-8 md:pl-0"
+                className="group grid md:grid-cols-[28%_1fr] gap-2.5 md:gap-10 relative pl-7 sm:pl-8 md:pl-0"
               >
                 <div className="md:text-right md:pr-10 flex md:block items-center gap-3 flex-wrap">
                   <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] text-primary">
@@ -63,7 +63,7 @@ export function Experience() {
                   </div>
                 </div>
 
-                <span className="absolute left-0 md:left-[calc(28%-7px)] top-1.5 h-3.5 w-3.5 bg-primary brutal-border" />
+                <span className="absolute left-0 md:left-[calc(28%-7px)] top-1.5 h-3.5 w-3.5 bg-primary brutal-border transition-transform duration-300 group-hover:scale-125" />
 
                 <div>
                   <h3 className="font-display font-black text-lg sm:text-xl md:text-3xl tracking-[-0.02em] text-foreground">
