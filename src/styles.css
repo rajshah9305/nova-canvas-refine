@@ -174,6 +174,26 @@
 }
 
 @layer utilities {
+  /* ── Typography utilities (single source of truth) ─────────── */
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: var(--fs-display);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+    text-wrap: balance;
+  }
+  .t-h1 { font-family: var(--font-display); font-weight: 900; font-size: var(--fs-h1); line-height: var(--leading-display); letter-spacing: var(--tracking-display); text-wrap: balance; }
+  .t-h2 { font-family: var(--font-display); font-weight: 900; font-size: var(--fs-h2); line-height: 0.9; letter-spacing: var(--tracking-display); text-wrap: balance; }
+  .t-h3 { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-h3); line-height: 1.05; letter-spacing: var(--tracking-tight); }
+  .t-h4 { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h4); line-height: 1.15; letter-spacing: var(--tracking-tight); }
+  .t-lead { font-size: var(--fs-lead); line-height: 1.55; color: color-mix(in oklab, var(--foreground) 88%, transparent); text-wrap: pretty; }
+  .t-body { font-size: var(--fs-body); line-height: var(--leading-body); }
+  .t-mono { font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: var(--tracking-mono); text-transform: uppercase; }
+  .t-mono-sm { font-family: var(--font-mono); font-size: var(--fs-micro); letter-spacing: 0.3em; text-transform: uppercase; }
+  .t-editorial { font-family: var(--font-editorial); font-style: italic; font-optical-sizing: auto; }
+  .t-numeric { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum", "lnum"; }
+
   .grid-bg {
     background-image:
       linear-gradient(to right, var(--grid) 1px, transparent 1px),
