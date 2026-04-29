@@ -143,17 +143,34 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-size: 16px;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-display);
-    font-feature-settings: "ss01", "cv11";
+    font-size: var(--fs-body);
+    line-height: var(--leading-body);
+    font-feature-settings: "ss01", "ss02", "cv11", "kern";
+    font-variant-ligatures: common-ligatures contextual;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-heading);
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
   ::selection { background: var(--color-primary); color: var(--color-primary-foreground); }
+  :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 }
 
 @layer utilities {
