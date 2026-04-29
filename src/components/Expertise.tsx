@@ -51,7 +51,7 @@ export function Expertise() {
                     key={it}
                     className="font-display font-semibold text-[15px] sm:text-base md:text-lg flex items-center gap-3 text-foreground"
                   >
-                    <span className="font-mono text-[10px] text-muted-foreground w-5">
+                    <span className="font-mono t-numeric text-[10px] text-muted-foreground w-5">
                       {String(idx + 1).padStart(2, "0")}
                     </span>
                     <span className="h-px flex-1 bg-foreground/15 group-hover:bg-primary transition-colors duration-300" />

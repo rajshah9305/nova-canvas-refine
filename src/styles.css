@@ -43,9 +43,30 @@
   --color-signal: var(--signal);
   --color-tech: var(--tech);
 
-  --font-display: "Archivo", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-editorial: "Fraunces", "Times New Roman", serif;
+  --font-display: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-editorial: "Fraunces", "Iowan Old Style", "Times New Roman", Georgia, serif;
+
+  /* ── Fluid type scale (clamp(min, vw-fluid, max)) ──
+     Single source of truth. Components consume these via text-[var(--fs-*)]
+     so spacing/leading/tracking stay consistent across breakpoints. */
+  --fs-micro:   0.6875rem;                                /* 11px static */
+  --fs-mono:    clamp(0.625rem, 0.55rem + 0.25vw, 0.75rem);
+  --fs-body:    clamp(0.9375rem, 0.875rem + 0.3vw, 1.0625rem);
+  --fs-lead:    clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  --fs-h4:      clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  --fs-h3:      clamp(1.375rem, 1.15rem + 1vw, 2rem);
+  --fs-h2:      clamp(2rem, 1.5rem + 2.6vw, 4.5rem);
+  --fs-h1:      clamp(3rem, 1.8rem + 7vw, 7.5rem);
+  --fs-display: clamp(3.5rem, 1rem + 17vw, 12rem);
+
+  /* Tracking + leading tokens */
+  --tracking-display: -0.045em;
+  --tracking-tight:   -0.025em;
+  --tracking-mono:    0.25em;
+  --leading-display:  0.85;
+  --leading-heading:  0.92;
+  --leading-body:     1.6;
 }
 
 :root {
@@ -122,20 +143,57 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-size: 16px;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-display);
-    font-feature-settings: "ss01", "cv11";
+    font-size: var(--fs-body);
+    line-height: var(--leading-body);
+    font-feature-settings: "ss01", "ss02", "cv11", "kern";
+    font-variant-ligatures: common-ligatures contextual;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-heading);
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
   ::selection { background: var(--color-primary); color: var(--color-primary-foreground); }
+  :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 }
 
 @layer utilities {
+  /* ── Typography utilities (single source of truth) ─────────── */
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: var(--fs-display);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+    text-wrap: balance;
+  }
+  .t-h1 { font-family: var(--font-display); font-weight: 900; font-size: var(--fs-h1); line-height: var(--leading-display); letter-spacing: var(--tracking-display); text-wrap: balance; }
+  .t-h2 { font-family: var(--font-display); font-weight: 900; font-size: var(--fs-h2); line-height: 0.9; letter-spacing: var(--tracking-display); text-wrap: balance; }
+  .t-h3 { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-h3); line-height: 1.05; letter-spacing: var(--tracking-tight); }
+  .t-h4 { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h4); line-height: 1.15; letter-spacing: var(--tracking-tight); }
+  .t-lead { font-size: var(--fs-lead); line-height: 1.55; color: color-mix(in oklab, var(--foreground) 88%, transparent); text-wrap: pretty; }
+  .t-body { font-size: var(--fs-body); line-height: var(--leading-body); }
+  .t-mono { font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: var(--tracking-mono); text-transform: uppercase; }
+  .t-mono-sm { font-family: var(--font-mono); font-size: var(--fs-micro); letter-spacing: 0.3em; text-transform: uppercase; }
+  .t-editorial { font-family: var(--font-editorial); font-style: italic; font-optical-sizing: auto; }
+  .t-numeric { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum", "lnum"; }
+
   .grid-bg {
     background-image:
       linear-gradient(to right, var(--grid) 1px, transparent 1px),
